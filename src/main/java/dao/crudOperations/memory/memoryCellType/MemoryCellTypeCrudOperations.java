@@ -2,7 +2,7 @@ package dao.crudOperations.memory.memoryCellType;
 
 import entity.memory.MemoryCellType;
 
-import java.util.Set;
+import java.util.List;
 
 public interface MemoryCellTypeCrudOperations {
     MemoryCellType getMemoryCellTypeById(Long id);
@@ -11,7 +11,7 @@ public interface MemoryCellTypeCrudOperations {
 
     void saveMemory(MemoryCellType memoryCellType);
 
-    Set<MemoryCellType> getAllMemoryCellTypes();
+    List<MemoryCellType> getAllMemoryCellTypes();
 
     void updateMemoryCellType(MemoryCellType memoryCellType);
 }

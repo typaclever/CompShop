@@ -18,12 +18,13 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 public class SessionFactoryAccess {
+
     private static SessionFactory sessionFactory;
 
     private SessionFactoryAccess() {
     }
 
-    private static SessionFactory getSessionFactory() {
+    public static SessionFactory getSessionFactory() {
         return sessionFactory != null
                 ? sessionFactory
                 : (sessionFactory = new Configuration()

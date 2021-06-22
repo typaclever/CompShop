@@ -2,6 +2,7 @@ package dao.crudOperations.memory.connectionInterface;
 
 import entity.memory.ConnectionInterface;
 
+import java.util.List;
 import java.util.Set;
 
 public interface ConnectionInterfaceCrudOperations {
@@ -11,7 +12,7 @@ public interface ConnectionInterfaceCrudOperations {
 
     void saveConnectionInterface(ConnectionInterface connectionInterface);
 
-    Set<ConnectionInterface> getAllConnectionInterfaces();
+    List<ConnectionInterface> getAllConnectionInterfaces();
 
     void updateConnectionInterface(ConnectionInterface connectionInterface);
 }
