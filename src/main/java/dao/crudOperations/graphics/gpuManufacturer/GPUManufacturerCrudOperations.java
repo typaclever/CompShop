@@ -6,8 +6,12 @@ import java.util.Set;
 
 public interface GPUManufacturerCrudOperations {
     GPUManufacturer getGPUManufacturerById(Long id);
+
     void deleteGPUManufacturer(Long id);
+
     void saveGPUManufacturer(GPUManufacturer gpuManufacturer);
+
     Set<GPUManufacturer> getAllGPUManufacturer();
+
     void updateGPUManufacturer(GPUManufacturer gpuManufacturer);
 }
