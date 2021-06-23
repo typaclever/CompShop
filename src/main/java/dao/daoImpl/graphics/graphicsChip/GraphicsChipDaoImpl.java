@@ -2,22 +2,16 @@ package dao.daoImpl.graphics.graphicsChip;
 
 import dao.SessionFactoryAccess.SessionFactoryAccess;
 import dao.crudOperations.graphics.graphicsChip.GraphicsChipCrudOperations;
-import entity.graphics.GraphicsBrand;
 import entity.graphics.GraphicsChip;
 import org.hibernate.Session;
-import sun.misc.GC;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-import java.util.List;
 import java.util.Set;
 
 public class GraphicsChipDaoImpl implements GraphicsChipCrudOperations {
 
     private static GraphicsChipDaoImpl graphicsChipDao;
 
-    private GraphicsChipDaoImpl() {
+    private GraphicsChipDaoImpl(){
 
     }
 
@@ -34,11 +28,11 @@ public class GraphicsChipDaoImpl implements GraphicsChipCrudOperations {
     public void deleteGraphicsChip(Long id) {
         GraphicsChip graphicsChip = null;
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
-        if ((graphicsChip = getGraphicsChipById(id)) != null) {
+        if ((graphicsChip = getGraphicsChipById(id))!= null){
             session.beginTransaction();
             session.delete(graphicsChip);
             session.getTransaction().commit();
-        } else {
+        }else {
 
         }
         session.close();
@@ -54,12 +48,8 @@ public class GraphicsChipDaoImpl implements GraphicsChipCrudOperations {
     }
 
     @Override
-    public List<GraphicsChip> getAllGraphicsChips() {
-        Session session = SessionFactoryAccess.getSessionFactory().openSession();
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<GraphicsChip> query = builder.createQuery(GraphicsChip.class);
-        Root<GraphicsChip> root = query.from(GraphicsChip.class);
-        return session.createQuery(query.select(root)).list();
+    public Set<GraphicsChip> getAllGraphicsChips() {
+        return null;
     }
 
     @Override

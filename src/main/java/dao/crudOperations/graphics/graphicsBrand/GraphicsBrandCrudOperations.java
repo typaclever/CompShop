@@ -7,12 +7,8 @@ import java.util.Set;
 
 public interface GraphicsBrandCrudOperations {
     GraphicsBrand getGraphicsBrandById(Long id);
-
     void deleteGraphicsBrand(Long id);
-
     void saveGraphicsBrand(GraphicsBrand graphicsBrand);
-
     List<GraphicsBrand> getAllGraphicsBrand();
-
     void updateGraphicsBrands(GraphicsBrand graphicsBrand);
 }

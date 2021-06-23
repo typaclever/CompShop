@@ -2,7 +2,6 @@ package dao.daoImpl.memory.formFactor;
 
 import dao.SessionFactoryAccess.SessionFactoryAccess;
 import dao.crudOperations.memory.formFactor.FormFactorCrudOperations;
-import entity.graphics.GraphicsBrand;
 import entity.memory.FormFactor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -54,20 +53,19 @@ public class FormFactorDaoImpl implements FormFactorCrudOperations {
     }
 
     @Override
-    public List<FormFactor> getAllFormFactors() {
-        Session session = SessionFactoryAccess.getSessionFactory().openSession();
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<FormFactor> query = builder.createQuery(FormFactor.class);
-        Root<FormFactor> root = query.from(FormFactor.class);
-        return session.createQuery(query.select(root)).list();
-    }
-
-    @Override
     public void updateFormFactor(FormFactor formFactor) {
         Session session = SessionFactoryAccess.getSessionFactory().openSession();
         session.beginTransaction();
         session.saveOrUpdate(formFactor);
         session.getTransaction().commit();
         session.close();
+    }
+    @Override
+    public List<FormFactor> getAllFormFactors() {
+        Session session = SessionFactoryAccess.getSessionFactory().openSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<FormFactor> query = builder.createQuery(FormFactor.class);
+        Root<FormFactor> root = query.from(FormFactor.class);
+        return session.createQuery(query.select(root)).list();
     }
 }

@@ -2,9 +2,14 @@ package dao.daoImpl.operationSystem.operationSystemBrand;
 
 import dao.SessionFactoryAccess.SessionFactoryAccess;
 import dao.crudOperations.operationSystem.operationSystemBrand.OSBrandCrudOperations;
+import entity.graphics.GPUManufacturer;
 import entity.operationSystem.OSBrand;
 import org.hibernate.Session;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import java.util.List;
 import java.util.Set;
 
 public class OperationSystemBrandDaoImpl implements OSBrandCrudOperations {
@@ -49,8 +54,12 @@ public class OperationSystemBrandDaoImpl implements OSBrandCrudOperations {
     }
 
     @Override
-    public Set<OSBrand> getAllOSBrands() {
-        return null;
+    public List<OSBrand> getAllOSBrands() {
+        Session session = SessionFactoryAccess.getSessionFactory().openSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<OSBrand> gpuManufacturerCriteriaQuery = builder.createQuery(OSBrand.class);
+        Root<OSBrand> manufacturerRoot = gpuManufacturerCriteriaQuery.from(OSBrand.class);
+        return session.createQuery(gpuManufacturerCriteriaQuery.select(manufacturerRoot)).list();
     }
 
     @Override
